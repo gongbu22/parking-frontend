@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>차량 정산 내역</title>
+    <link rel="stylesheet" href="/css/visitor/paycheck.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<div class="container">
+    <div class="border-blue">
+        <h2 class="text-center">차량 정산 내역</h2>
+        <form>
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th>차량 번호</th>
+                    <td id="carLicense">ABC-1234</td>
+                </tr>
+                <tr>
+                    <th>입차 시간</th>
+                    <td id="entryTime">2024-10-01 10:00</td>
+                </tr>
+                <tr>
+                    <th>출차 시간</th>
+                    <td id="exitTime">2024-10-01 12:30</td>
+                </tr>
+                <tr>
+                    <th>주차 시간</th>
+                    <td id="parkingDuration">2시간 30분</td>
+                </tr>
+                <tr>
+                    <th>요금 확인</th>
+                    <td id="fee">5,000원</td>
+                </tr>
+                </tbody>
+            </table>
+            <button type="submit" class="btn btn-primary btn-block">결제</button>
+        </form>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="/js/visitor/paycheck.js"></script>
+</body>
+</html>
