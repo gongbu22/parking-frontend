@@ -1,7 +1,6 @@
-.centered {
-    height: 100vh; /* 화면 전체 높이 */
+.button-container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100vh; /* 화면 중앙 정렬 */
 }

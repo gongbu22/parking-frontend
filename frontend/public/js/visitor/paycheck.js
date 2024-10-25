@@ -1,16 +1,18 @@
-// 현재 URL 가져오기
-const currentUrl = window.location.pathname;
-let carnum='';
+// 현재 URL의 경로 가져오기
+const path = window.location.pathname;
 
-// URL 경로를 '/' 기준으로 분할
-const pathParts = currentUrl.split('/');
+// 경로를 슬래시로 분리
+const pathSegments = path.split('/');
 
-// 'paycheck' 다음에 오는 부분을 가져오기
-if (pathParts.length > 2) {
-    const carnumPart = pathParts[2]; // 'carnum=%E3%84%B7%E3%84%B3%E3%85%8E%E3%84%B7%E3%84%B3' 부분
-    carnum = decodeURIComponent(carnumPart.split('=')[1]); // '=' 기준으로 분할하여 두 번째 부분 가져오기
+// 마지막 값을 가져오기 (배열의 마지막 요소)
+const lastSegment = pathSegments[pathSegments.length - 1];
 
-}
+// 마지막 값을 디코딩
+const carnum = decodeURIComponent(lastSegment);
 
-console.log('출차된 차량 번호:dd', carnum);
+console.log(`마지막 값: ${carnum}`);
+
+window.addEventListener('DOMContentLoaded', async () => {
+
+})
 
