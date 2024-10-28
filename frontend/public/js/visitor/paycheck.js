@@ -23,24 +23,24 @@ window.addEventListener('DOMContentLoaded', async () => {
 })
 
 const paylist = async () => {
-    // let url = `http://127.0.0.1:8000/payment?carnum=${carnum}`;
-    // const res = await fetch(url);
-    // if (res.ok) {
-    //     const data = await res.json();
-    //     return data;
-    // } else {
-    //     throw new Error('차량 목록 조회 실패!!');
-    // }
-    const dummyData = [
-        {
-            carnum: '12 가 1234',
-            intime: '2024-10-01 10:00',
-            outtime: '2024-10-01 12:00',
-            parkingDuration: '2시간',
-            fee: '5,000원'
-        }
-    ];
-    return dummyData;
+    let url = `http://127.0.0.1:8001/payment/${carnum}`;
+    const res = await fetch(url);
+    if (res.ok) {
+        const data = await res.json();
+        return data;
+    } else {
+        throw new Error('차량 목록 조회 실패!!');
+    }
+    // const dummyData = [
+    //     {
+    //         carnum: '12 가 1234',
+    //         intime: '2024-10-01 10:00',
+    //         outtime: '2024-10-01 12:00',
+    //         parkingDuration: '2시간',
+    //         fee: '5,000원'
+    //     }
+    // ];
+    // return dummyData;
 }
 
 const displayPayment = (payment) => {
@@ -61,11 +61,11 @@ const displayPayment = (payment) => {
         </tr>
         <tr>
             <th>주차 시간</th>
-            <td id="parkingDuration">${payment[0].parkingDuration}</td>
+            <td id="parkingDuration">${payment[0].paydate}</td>
         </tr>
         <tr>
             <th>요금 확인</th>
-            <td id="fee">${payment[0].fee}</td>
+            <td id="fee">${payment[0].payment}</td>
         </tr>
     `
     paytbody.innerHTML = html;

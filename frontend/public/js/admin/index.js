@@ -9,6 +9,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
 })
 
+// 방문 차량 조회 내역
 const visitedCars = async () => {
     // let url = `http://127.0.0.1:8000/vistedcars;
     // const res = await fetch(url);

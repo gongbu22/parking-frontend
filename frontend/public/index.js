@@ -6,6 +6,10 @@ router.get('/', function(req, res, next) {
   res.sendFile(__dirname + '/views/visitor/index.html');
 });
 
+router.get('/leaving', function(req, res, next) {
+  res.sendFile(__dirname + '/views/visitor/leaving.html');
+});
+
 router.get('/register', function(req, res, next) {
   res.sendFile(__dirname + '/views/visitor/register.html');
 });

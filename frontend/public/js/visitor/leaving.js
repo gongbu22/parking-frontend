@@ -1,4 +1,4 @@
-// 차량 출차
+// 차량 출차 - 4자리 차량 번호 입력
 const regbtn = document.querySelector('#regbtn');
 const carnumfrm = document.forms['carnumfrm'];
 let carnum = '';
@@ -13,7 +13,7 @@ regbtn.addEventListener('click', async (event) => {
     formData.forEach((val, key) => {
         jsondata[key] = val;
     });
-    console.log(jsondata);
+    // console.log(jsondata);
     // window.location.href = `./paycheck/carnum=${encodeURIComponent(carnum)}`; // 출차 페이지로 이동
     // alert('차량이 출차되었습니다.');
     window.location.href = `/outcar/${encodeURIComponent(carnum)}`;
