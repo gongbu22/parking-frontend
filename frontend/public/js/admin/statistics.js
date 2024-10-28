@@ -1,5 +1,15 @@
-window.addEventListener('DOMContentLoaded', async () => {
+let vData = [];
+let fData = [];
 
+window.addEventListener('DOMContentLoaded', async () => {
+    let url = `http://127.0.0.1:8003/statistics`;
+    const res = await fetch(url);
+    if (res.ok) {
+        const data = await res.json();
+        return data;
+    } else {
+        throw new Error('차량 목록 조회 실패!!');
+    }
 })
 
 // 방문자 수 그래프
