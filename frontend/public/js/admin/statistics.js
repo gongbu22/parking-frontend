@@ -6,7 +6,9 @@ window.addEventListener('DOMContentLoaded', async () => {
     const res = await fetch(url);
     if (res.ok) {
         const data = await res.json();
-        return data;
+        // return data;
+        vData = data.visitordata;
+        fData = data.paymentdata;
     } else {
         throw new Error('차량 목록 조회 실패!!');
     }
@@ -18,7 +20,8 @@ const visitorData = {
     labels: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
     datasets: [{
         label: '방문자 수',
-        data: [120, 150, 170, 200, 180, 220, 300, 350, 400, 380, 420, 450],
+        // data: [120, 150, 170, 200, 180, 220, 300, 350, 400, 380, 420, 450],
+        data: vData,
         backgroundColor: 'rgba(75, 192, 192, 0.6)',
         borderColor: 'rgba(75, 192, 192, 1)',
         borderWidth: 1,
@@ -53,7 +56,8 @@ const feeData = {
     labels: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
     datasets: [{
         label: '요금 (만원)',
-        data: [10, 15, 17, 20, 18, 22, 30, 35, 40, 38, 42, 45],
+        // data: [10, 15, 17, 20, 18, 22, 30, 35, 40, 38, 42, 45],
+        data: fData,
         backgroundColor: 'rgba(255, 99, 132, 0.6)',
         borderColor: 'rgba(255, 99, 132, 1)',
         borderWidth: 1,
