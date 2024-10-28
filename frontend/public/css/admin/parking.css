@@ -14,3 +14,21 @@
     border-radius: 5px; /* 모서리 둥글게 */
     display: inline-block;
 }
+.disabled-parking-spots {
+    margin-top: 10px; /* 기존 주차 공간과의 간격 */
+}
+
+.disabled-parking-spot {
+    width: 40px; /* 주차 공간의 너비 */
+    height: 40px; /* 주차 공간의 높이 */
+    margin: 2px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: inline-block; /* 주차 공간이 inline-block으로 표시되도록 설정 */
+}
+
+.spot-status {
+    margin-left: 5px; /* 색상 박스와 텍스트 간의 간격 */
+    font-size: 0.8rem; /* 텍스트 크기 */
+    font-weight: bold; /* 텍스트 두께 */
+}
