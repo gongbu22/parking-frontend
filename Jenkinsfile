@@ -77,13 +77,23 @@ pipeline {
             }
         }
 
+        stage('Update values.yaml') {
+            steps {
+                sh """
+                    cd project-parking-CD/project-parking
+                    sed -i 's|NODEJS_IMG: .*|NODEJS_IMG: ${DOCKER_IMAGE_OWNER}/arm64-nodejs:${DOCKER_BUILD_TAG}|' values.yaml
+                    sed -i 's|NGINX_IMG: .*|NGINX_IMG: ${DOCKER_IMAGE_OWNER}/arm64-nginx:${DOCKER_BUILD_TAG}|' values.yaml
+                """
+            }
+        }
+
         stage('Commit Changes') {
             steps {
                 dir('project-parking-CD') {
                 sh '''
                     git config user.name "gongbu22"
                     git config user.email "pyujin0711@naver.com"
-                    git add README.md
+                    git add README.md project-parking/values.yaml
                     git commit -m "${COMMIT_MESSAGE}"
                 '''
                 }
