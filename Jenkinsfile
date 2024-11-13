@@ -22,10 +22,12 @@ pipeline {
 
         stage('Docker Image Building') {
             steps {
-                dir('project-parking'){
+                dir('parking-frontend'){
                 sh '''
-                docker build --platform linux/arm64 -t ${DOCKER_IMAGE_OWNER}/msa-parking-service:latest -t ${DOCKER_IMAGE_OWNER}/msa-parking-service:${DOCKER_BUILD_TAG} ./msa-parking-service
-                docker tag ${DOCKER_IMAGE_OWNER}/msa-parking-service:latest ${DOCKER_IMAGE_OWNER}/msa-parking-service:${DOCKER_BUILD_TAG}
+                docker build --platform linux/arm64 -t ${DOCKER_IMAGE_OWNER}/arm64-nginx:latest -t ${DOCKER_IMAGE_OWNER}/arm64-nginx:${DOCKER_BUILD_TAG} -f ./msa-frontend/nginx-Dockerfile ./msa-frontend
+                docker tag ${DOCKER_IMAGE_OWNER}/arm64-nginx:latest ${DOCKER_IMAGE_OWNER}/arm64-nginx:${DOCKER_BUILD_TAG}
+                docker build --platform linux/arm64 -t ${DOCKER_IMAGE_OWNER}/arm64-nodejs:latest -t ${DOCKER_IMAGE_OWNER}/arm64-nodejs:${DOCKER_BUILD_TAG} -f ./msa-frontend/nodejs-Dockerfile ./msa-frontend
+                docker tag ${DOCKER_IMAGE_OWNER}/arm64-nodejs:latest ${DOCKER_IMAGE_OWNER}/arm64-nodejs:${DOCKER_BUILD_TAG}
                 '''
                 }
             }
@@ -41,8 +43,10 @@ pipeline {
         stage('Docker Image pushing') {
             steps {
                 sh '''
-                docker push ${DOCKER_IMAGE_OWNER}/msa-parking-service:${DOCKER_BUILD_TAG}
-                docker push ${DOCKER_IMAGE_OWNER}/msa-frontend:latest
+                docker push ${DOCKER_IMAGE_OWNER}/arm64-nginx:${DOCKER_BUILD_TAG}
+                docker push ${DOCKER_IMAGE_OWNER}/arm64-nginx:latest
+                docker push ${DOCKER_IMAGE_OWNER}/arm64-nodejs:${DOCKER_BUILD_TAG}
+                docker push ${DOCKER_IMAGE_OWNER}/arm64-nodejs:latest
                 '''
             }
         }
