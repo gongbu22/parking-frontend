@@ -1,3 +1,4 @@
+//console.log('productURL:', `${sessionStorage.getItem('productURL')}`)
 window.addEventListener('load', async () => {
     try {
         const parkseat = await getParkseatList();
@@ -9,7 +10,7 @@ window.addEventListener('load', async () => {
 });
 
 const getParkseatList = async () => {
-    let url = 'http://127.0.0.1:8002/parkseat';
+    let url = `http://${sessionStorage.getItem('productURL')}/parkseat`;
     const res = await fetch(url);
     if (res.ok) {
         const data = await res.json();
